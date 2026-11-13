@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Nomad LMS Player</title>
+<style>
+:root { --bg: #f8f7fb; --text: #1c1b20; --muted: #5c5a66; --line: #dddbe4; --accent: #3f5a8a; --card: #ffffff; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #131217; --text: #e6e4ec; --muted: #a6a3b0; --line: #34323c; --accent: #a9c1f0; --card: #1c1b21; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+header { display: flex; gap: 16px; align-items: baseline; flex-wrap: wrap; margin-bottom: 24px; }
+header a { color: var(--accent); text-decoration: none; font-weight: 600; }
+h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 4px; }
+h2 { font-size: 1.25rem; margin: 2em 0 0.5em; }
+p.date { color: var(--muted); margin-top: 0; }
+a { color: var(--accent); }
+ul { padding-left: 1.3em; }
+li { margin: 0.3em 0; }
+code { font-size: 0.9em; }
+.table { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; margin: 1em 0; background: var(--card); }
+th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<main>
+<header><a href="index.html">Nomad LMS Player</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></header>
+<h1>Privacy Policy — Nomad LMS Player</h1>
+<p class="date">Effective November 14, 2026</p>
+<p>Aurelian Group Pty Ltd ("we") makes Nomad LMS Player ("Nomad"), an Android app that turns your phone into a player for your own Lyrion Music Server (LMS).</p>
+<h2>The short version</h2>
+<ul><li><strong>Nomad sends nothing to us.</strong> We have no servers, no accounts, no analytics, no advertising and no tracking.</li><li><strong>Nomad talks to your own Lyrion server,</strong> and through it to the services you use.</li><li><strong>What Nomad keeps stays on your phone.</strong> Uninstalling Nomad removes it.</li></ul>
+<h2>What Nomad keeps on your phone</h2>
+<ul><li>Your Lyrion server's addresses, at home and away</li><li>A player ID that Nomad creates the first time it runs, so Lyrion recognizes the phone</li><li>Your settings, your Home layout and your Recently played list</li><li>Music it buffers ahead, and the music and podcast episodes you choose to download, with their pictures</li><li>Where you stopped in downloaded podcast episodes</li><li>What the home-screen widget shows</li><li>Whether you've bought Nomad, and when your trial started</li></ul>
+<p>None of this leaves the phone, except as described below.</p>
+<h2>What Nomad sends, and to whom</h2>
+<p><strong>Your Lyrion server.</strong> Nomad connects to the server addresses you enter, just as any Squeezebox player does. It sends:</p>
+<ul><li>The player's name: your phone's name followed by "[Nomad]". Android's device name often includes your own name, such as "Alex's phone". You can change it in Android's settings, or rename the player in Lyrion.</li><li>Nomad's player ID and the phone's network address</li><li>What you play, browse and search for, changes to the queue, and how far playback has reached</li><li>Requests for music, pictures and track details</li></ul>
+<p>Your Lyrion server is yours. What it does with this information is under your control, including its logs and plugins such as Nomad Companion. Anyone who can use your Lyrion server's web interface or other controllers can see the player's name and what it's playing.</p>
+<p>Nomad talks to Lyrion the way Lyrion's other players do, which isn't encrypted. On your home network the connection stays at home. Away from home, we recommend Tailscale or another VPN, which encrypts it.</p>
+<p><strong>Streaming services, radio and podcasts, through Lyrion.</strong> Music from services such as Tidal plays through your Lyrion server, which signs in to them. Nomad never asks for your passwords for these services; you sign in to them in Lyrion. Their own privacy policies cover what Lyrion and its plugins send them.</p>
+<p><strong>Servers that host pictures.</strong> Some pictures for streaming services, radio stations and podcasts load directly from the servers that host them. Like any website, those servers see your phone's network address.</p>
+<p><strong>Podcast publishers.</strong> When you keep a podcast show, Nomad checks the show's feed and downloads new episodes directly from the publisher, or from the host the publisher uses. They see your phone's network address and that the request comes from Nomad.</p>
+<p><strong>Your phone, and the devices and apps connected to it.</strong> Like any music app, Nomad tells Android what's playing. That shows it on the lock screen, in notifications, on the widget, over Bluetooth and in Android Auto. Apps you allow to read notifications or media can see it too, such as the Last.fm app. Nomad checks whether the Last.fm app is installed only to show the right scrobbling guidance, and that check stays on the phone.</p>
+<p><strong>Last.fm, if you sign in.</strong> In Settings you can sign in to your Last.fm account. Your username and password go only to Last.fm, once, over an encrypted connection; Nomad keeps the sign-in Last.fm gives back, not your password. Nomad then sends Last.fm what you play (artist, title, album, length, and when it started) and what's playing now. Plays made offline are kept on your phone until they've been sent. Podcasts and radio aren't sent. Last.fm's privacy policy covers what it does with them. Signing out in Settings stops it.</p>
+<p><strong>Voice requests in Android Auto.</strong> Google's voice assistant handles your recording, under Google's privacy policy. Nomad receives only the words of the request.</p>
+<p><strong>Google Play.</strong> Google handles buying Nomad. Nomad only learns whether you own it. Google Play may share limited order details with us, such as the order number and country, which we use only for refunds and accounting. If you've agreed to share usage and diagnostics with Google, Google Play may also give us crash reports and performance statistics that don't identify you.</p>
+<p><strong>What Nomad doesn't do:</strong> it has no analytics, advertising or tracking. It doesn't use your location, contacts, microphone or camera, and it has no Nomad account.</p>
+<h2>Permissions</h2>
+<div class="table"><table><tr><th>Permission</th><th>Why Nomad needs it</th></tr><tr><td>Internet</td><td>To reach your Lyrion server, picture servers and podcast publishers</td></tr><tr><td>Network state</td><td>To tell Wi-Fi, mobile data and roaming apart, for the download-ahead setting</td></tr><tr><td>Foreground service, media playback and wake lock</td><td>To keep playing with the screen off</td></tr></table></div>
+<h2>Your choices</h2>
+<ul><li><strong>Downloads:</strong> remove them on the Downloads screen.</li><li><strong>The cache:</strong> clear it in Settings.</li><li><strong>Everything Nomad keeps:</strong> uninstall Nomad, or clear its storage in Android's settings.</li><li><strong>The player in Lyrion:</strong> remove it in Lyrion's settings.</li></ul>
+<p>We receive no personal information, so there's nothing for us to access, correct or delete. If you email us, we use your message only to reply to you.</p>
+<p>If you have a concern about how Nomad handles your information, write to us first. If we don't resolve it, you can complain to the privacy regulator where you live; in Australia, that's the Office of the Australian Information Commissioner (<a href="https://www.oaic.gov.au">oaic.gov.au</a>).</p>
+<h2>Children</h2>
+<p>Nomad isn't aimed at children, and it collects no personal information from anyone.</p>
+<h2>Changes</h2>
+<p>If this policy changes, we'll update this page and the date at the top. Significant changes will also be noted in Nomad's release notes.</p>
+<h2>Contact</h2>
+<p>Aurelian Group Pty Ltd</p>
+<p><a href="mailto:privacy@aurelian-group.com">privacy@aurelian-group.com</a></p>
+<footer>© 2026 Aurelian Group Pty Ltd · <a href="mailto:privacy@aurelian-group.com">privacy@aurelian-group.com</a></footer>
+</main>
+</body>
+</html>
