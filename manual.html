@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nomad LMS Player — User Manual</title>
+<style>
+:root { --bg: #f8f7fb; --text: #1c1b20; --muted: #5c5a66; --line: #dddbe4; --accent: #3f5a8a; --card: #ffffff; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #131217; --text: #e6e4ec; --muted: #a6a3b0; --line: #34323c; --accent: #a9c1f0; --card: #1c1b21; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+header { display: flex; gap: 16px; align-items: baseline; flex-wrap: wrap; margin-bottom: 24px; }
+header a { color: var(--accent); text-decoration: none; font-weight: 600; }
+h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 4px; }
+h2 { font-size: 1.25rem; margin: 2em 0 0.5em; }
+h3 { font-size: 1.05rem; margin: 1.5em 0 0.4em; }
+p.date { color: var(--muted); margin-top: 0; }
+a { color: var(--accent); }
+ul { padding-left: 1.3em; }
+li { margin: 0.3em 0; }
+code { font-size: 0.9em; overflow-wrap: anywhere; }
+a { overflow-wrap: anywhere; }
+.table { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; margin: 1em 0; background: var(--card); }
+th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<main>
+<header><a href="index.html">Nomad LMS Player</a><a href="manual.html">Manual</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></header>
+<h1>Nomad LMS Player — User Manual</h1>
+<p class="date">Updated November 14, 2026</p>
+<p>Nomad turns your Android phone into a player for your own Lyrion Music Server (LMS). It plays your library, Tidal and the apps your server offers, and it keeps a large buffer on the phone so the music carries on through dead zones, tunnels and patchy mobile data.</p>
+<h2 id="contents">Contents</h2>
+<ul><li><a href="#getting-started">Getting started</a></li><li><a href="#home-library-and-search">Home, Library and Search</a></li><li><a href="#playing-music">Playing music</a></li><li><a href="#now-playing">Now Playing</a></li><li><a href="#away-from-home">Away from home</a></li><li><a href="#downloads-and-offline-mode">Downloads and Offline mode</a></li><li><a href="#moving-music-between-players">Moving music between players</a></li><li><a href="#android-auto-the-widget-and-other-controls">Android Auto, the widget and other controls</a></li><li><a href="#scrobbling-to-last-fm">Scrobbling to Last.fm</a></li><li><a href="#settings">Settings</a></li><li><a href="#trial-and-purchase">Trial and purchase</a></li><li><a href="#troubleshooting">Troubleshooting</a></li></ul>
+<h2 id="getting-started">Getting started</h2>
+<h3>What you need</h3>
+<ul><li>An Android phone with <strong>Android 14</strong> or newer.</li><li><strong>Lyrion Music Server 9.1.1</strong> or newer, without a server password.</li><li>The phone must be able to reach the server on ports <strong>9000</strong> and <strong>3483</strong>. At home that's your own network; away from home it's a VPN such as Tailscale, or a public address.</li><li>Recommended: the free <strong>Nomad Companion</strong> plugin on your server (see below).</li></ul>
+<h3>First run</h3>
+<ol><li>Open Nomad. It asks you to <strong>Connect to your Lyrion server</strong>.</li><li>Enter your server's <strong>IP address or hostname</strong> on your home network, for example <code>192.168.1.20</code> or <code>lyrion.local</code>, and save.</li><li>Nomad registers with Lyrion as a player named after your phone, followed by <strong>[Nomad]</strong>, for example "Alex's Pixel [Nomad]". You'll see it in Lyrion's player list like any Squeezebox.</li><li>Pick something in the Library and it plays on the phone.</li></ol>
+<p>To rename the player, rename the phone in Android's settings (About phone); Nomad uses the new name next time it connects.</p>
+<h3>Install Nomad Companion</h3>
+<p>Lyrion lets any controller command any player, so without help, someone using Lyrion's web page could pause or change the music in your pocket. <strong>Nomad Companion</strong> is a small, free plugin that makes the phone the only thing that can control Nomad. It also lets you move music between Nomad and your other players, and keeps Lyrion from scrobbling Nomad's plays (Nomad does that itself).</p>
+<p>Nomad's <strong>Settings › Nomad Companion</strong> shows whether it's installed and up to date, and walks you through it:</p>
+<ol><li>Open Lyrion's plugin settings (Settings › Manage Plugins), on the phone or on a computer.</li><li>At the bottom, under <strong>Additional Repositories</strong>, add this address, then <strong>Apply</strong>:</li></ol>
+<p>   <code><a href="https://raw.githubusercontent.com/mattkoopmans/nomad-companion-for-lyrion/main/repo.xml">https://raw.githubusercontent.com/mattkoopmans/nomad-companion-for-lyrion/main/repo.xml</a></code></p>
+<ol><li>In the list of plugins, tick <strong>Nomad Companion</strong>, then <strong>Apply</strong>.</li><li>Restart Lyrion when it asks. Your other players pause for a few seconds.</li></ol>
+<p>When it's working, Settings shows <strong>Only this phone can control Nomad</strong>. Other controllers can still see what Nomad is playing; they just can't change it.</p>
+<p>Nomad plays without the plugin, but isn't protected, and moving music to another player needs it.</p>
+<h2 id="home-library-and-search">Home, Library and Search</h2>
+<p>The bottom bar has <strong>Home</strong>, <strong>Library</strong> and <strong>Search</strong>. While something is queued, a mini player floats above it; tap it to open Now Playing.</p>
+<h3>Home</h3>
+<ul><li><strong>Recently played:</strong> albums, playlists and apps you started on the phone. Hold one to remove it.</li><li><strong>Other players:</strong> your other Lyrion players, with a button to continue their music on the phone.</li><li><strong>Saved playlists</strong>, <strong>New albums</strong>, <strong>Random albums</strong> (a different pick each time) and <strong>Downloads</strong>.</li></ul>
+<p>Tap <strong>Customize Home</strong> at the bottom to switch sections on or off and change their order. <strong>Reset</strong> brings back the original layout.</p>
+<h3>Library</h3>
+<p>Tabs for Artists, Albums, Genres, Playlists, Tidal and Apps.</p>
+<ul><li><strong>Apps</strong> lists every app your Lyrion server offers, such as Podcasts, Radio and any plugins you add.</li><li><strong>Streaming albums:</strong> if Lyrion's library integration is on, albums from Tidal and other services appear among your own, with the service's icon in the corner of the cover.</li><li><strong>Album artists only</strong> (in Settings) limits Artists to album artists, as Lyrion's own Album Artists list does.</li></ul>
+<h3>Search</h3>
+<p>One search box covers your library and Tidal. Results are grouped, with <strong>In your library</strong> first and <strong>On Tidal</strong> after.</p>
+<h2 id="playing-music">Playing music</h2>
+<ul><li><strong>Tap</strong> an album, playlist or track to replace the queue and play from there.</li><li>The <strong>⋮</strong> menu on albums, artists, playlists, tracks, podcast episodes and Tidal items offers <strong>Play now</strong>, <strong>Play next</strong> and <strong>Add to end</strong>.</li><li>In a grid or on Home, <strong>hold an album's cover</strong> for the same choices without opening it.</li></ul>
+<h3>The queue</h3>
+<p>Open <strong>Queue</strong> from Now Playing. Drag tracks to reorder them and swipe to remove them. <strong>Save as playlist</strong> saves the queue to Lyrion; a playlist with the same name is replaced.</p>
+<h3>Don't Stop The Music</h3>
+<p>When the queue runs out, Lyrion can keep adding music from one of its mixes. Choose the mix, or Off, in the Queue or in Settings.</p>
+<h3>Podcasts and radio</h3>
+<p>Podcasts and internet radio play through Lyrion's apps. Nomad remembers where you left each podcast episode, even after playing other things, and continues from there next time (unless you'd nearly finished it).</p>
+<h2 id="now-playing">Now Playing</h2>
+<p>Now Playing has four styles. Change it from the menu at the top of Now Playing or in Settings:</p>
+<div class="table"><table><tr><th>Style</th><th>What you see</th></tr><tr><td>Classic</td><td>The album cover. Tap it to turn the sleeve over: the artist's photo and the track listing.</td></tr><tr><td>Vinyl</td><td>A record turning, and a tone arm that lifts when you pause.</td></tr><tr><td>CD player</td><td>The album in its jewel case, on a CD player.</td></tr><tr><td>Cassette</td><td>A tape turning in a portable player. Tap it to bring out the tape case and open it.</td></tr></table></div>
+<ul><li>The <strong>track listing</strong> shows a whole album in two columns (sides A and B on Vinyl and Cassette). A mixed queue turns over a few tracks at a time as it plays. Each disc of a multi-disc album is listed on its own, as "Disc 2 of 3".</li><li><strong>Transition sounds:</strong> Vinyl, CD player and Cassette play a needle drop, a CD drawer or a cassette going in between albums, and a radio dial tuning in before a podcast or station. The music waits for the sound, so nothing is cut off. Classic is silent. Turn them off in Settings.</li><li><strong>Podcasts and radio</strong> show a radio tuner display with the station or show and the title.</li></ul>
+<h3>The buffer and connection chips</h3>
+<ul><li>The progress bar shows how far ahead is buffered as a second, lighter track.</li><li>A chip shows how much is buffered, for example <strong>14 min buffered</strong>.</li><li>When the connection drops, it turns amber: <strong>Playing from buffer · 9:40 left</strong>, so you know how long you can keep going.</li><li>A second chip shows the connection: <strong>Home</strong>, <strong>Remote</strong> or <strong>Offline</strong>.</li></ul>
+<p>You can hide the buffer chip with <strong>Show buffer on Now Playing</strong> in Settings.</p>
+<h2 id="away-from-home">Away from home</h2>
+<h3>Remote server</h3>
+<p>In <strong>Settings › Lyrion server</strong>, add a <strong>Remote server</strong> address for when you're away: a Tailscale or other VPN address, or a public address. With <strong>Switch automatically</strong> on, Nomad tries home first, then remote.</p>
+<h3>Cache size</h3>
+<p>Nomad downloads ahead of what's playing, so a dropout drains the buffer instead of stopping the music. Pick the size in <strong>Settings › Cache size</strong>:</p>
+<div class="table"><table><tr><th>Size</th><th>Space</th><th>About this much CD-quality FLAC</th><th>For</th></tr><tr><td>Light</td><td>50 MB</td><td>7 min</td><td>Short dropouts, minimal data</td></tr><tr><td>Standard</td><td>100 MB</td><td>15 min</td><td>Typical dead zones (the default)</td></tr><tr><td>Large</td><td>500 MB</td><td>75 min</td><td>Long stretches with poor coverage</td></tr><tr><td>Huge</td><td>1 GB</td><td>2.5 hours</td><td>Most of a playlist ahead</td></tr></table></div>
+<p>MP3 lasts about three times as long; hi-res FLAC uses two to four times the space. Tidal, podcasts and radio arrive as Lyrion streams them, so the buffer holds the current track and the next one.</p>
+<h3>Download ahead</h3>
+<p><strong>Settings › Download ahead</strong> chooses when Nomad may download beyond the next track: <strong>Always</strong>, <strong>Not roaming</strong> (the default) or <strong>Wi-Fi only</strong>. The track playing and the next one always stream, or the music would stop.</p>
+<h3>Long dropouts and pauses</h3>
+<p>If the connection is gone for a long time, Nomad tells Lyrion where it actually got to when it reconnects, so nothing is replayed. After a long pause, press Play and Nomad continues from the same track and spot.</p>
+<h2 id="downloads-and-offline-mode">Downloads and Offline mode</h2>
+<p>For a flight, or roaming with data turned down, keep music on the phone beforehand.</p>
+<ul><li><strong>Music:</strong> open an artist, album or playlist and use the download button (<strong>Keep on the phone</strong>). An artist keeps all their albums. Tidal and other streaming tracks can't be kept and are skipped.</li><li><strong>Podcasts:</strong> in the Podcasts app, a show can keep its newest 1, 3, 5 or 10 episodes, updated as new ones appear.</li><li><strong>Downloads</strong> (in Library and on Home) lists what's kept and how much space it takes. <strong>Remove from the phone</strong> deletes it.</li><li>Downloads stay until you remove them, and follow the <strong>Download ahead</strong> setting.</li></ul>
+<h3>Offline mode</h3>
+<p>Switch on <strong>Offline mode</strong> in Settings, on Downloads or on Home. Nomad disconnects from Lyrion and uses no data: what's buffered finishes, downloads play from the phone, and nothing downloads. Without Lyrion, the Library shows only what's on the phone.</p>
+<p>When you turn Offline mode off, or Lyrion is reachable again, Lyrion takes the music over at the same track and spot without interrupting it.</p>
+<h2 id="moving-music-between-players">Moving music between players</h2>
+<p>From <strong>Home › Other players</strong>, or the <strong>Other players</strong> sheet:</p>
+<ul><li><strong>Continue &lt;player&gt;'s queue here:</strong> the phone takes over another player's queue at its track and position, and that player stops. This works at home and away.</li><li><strong>Continue listening on &lt;player&gt;:</strong> another player carries on from where the phone is, and the phone stops. This works on your home network, when Nomad has a queue.</li></ul>
+<p>Moves start only from the phone. Without Nomad Companion, continuing a queue here still works but the other player keeps playing, and continuing on another player isn't available. Nomad is never synced with other players.</p>
+<h2 id="android-auto-the-widget-and-other-controls">Android Auto, the widget and other controls</h2>
+<ul><li><strong>Android Auto:</strong> tabs for Recent, Library, Playlists and Tidal, with search. Downloads, in the Library tab, play without a connection.</li><li><strong>Voice:</strong> say, for example, "play Rumours by Fleetwood Mac" in the car or to your phone's assistant. Nomad looks in your library first, then on Tidal.</li><li><strong>Widget:</strong> add Nomad's widget to your home screen for the cover, title and play controls.</li><li><strong>Notification, lock screen, Bluetooth and headphone buttons</strong> work like any music app. Nomad pauses for calls and navigation prompts, and when headphones are unplugged.</li><li><strong>Volume</strong> is set on the phone; Lyrion's volume for Nomad stays at 100%.</li></ul>
+<p>Nomad plays tracks as they are, back to back: it doesn't apply replay gain or crossfades.</p>
+<h2 id="scrobbling-to-last-fm">Scrobbling to Last.fm</h2>
+<p>Nomad scrobbles to Last.fm itself, so plays count even when you're offline.</p>
+<ol><li>Open <strong>Settings › Scrobbling</strong> and tap <strong>Sign in to Last.fm</strong>.</li><li>Enter your Last.fm username and password. The password goes to Last.fm once; Nomad keeps only the sign-in Last.fm gives back.</li></ol>
+<p>A track counts once it has played for half its length or four minutes, whichever comes first. Plays made offline are kept and sent when you're back online (Last.fm ignores plays more than two weeks old). Music counts; podcasts and radio don't.</p>
+<p>If the Last.fm app is also installed and scrobbling Nomad, turn Nomad off there, or plays will count twice.</p>
+<h2 id="settings">Settings</h2>
+<div class="table"><table><tr><th>Setting</th><th>What it does</th></tr><tr><td>Offline mode</td><td>Only downloads play, and no data is used</td></tr><tr><td>Lyrion server</td><td>Home server, Remote server, and Switch automatically</td></tr><tr><td>Nomad Companion</td><td>Whether the plugin is installed and up to date, with steps to install, update or restart</td></tr><tr><td>Cache size</td><td>Light, Standard, Large or Huge</td></tr><tr><td>Download ahead</td><td>Always, Not roaming or Wi-Fi only</td></tr><tr><td>Downloads</td><td>What's kept on the phone</td></tr><tr><td>Don't Stop The Music</td><td>Off, or one of Lyrion's mixes</td></tr><tr><td>Now Playing</td><td>Classic, Vinyl, CD player or Cassette</td></tr><tr><td>Transition sounds</td><td>Sounds between albums and before podcasts and radio</td></tr><tr><td>Show buffer on Now Playing</td><td>Show or hide the buffer chip</td></tr><tr><td>Album artists only</td><td>Artists lists only album artists</td></tr><tr><td>Theme</td><td>System, light or dark; Colors from wallpaper (off uses Nomad's teal and amber)</td></tr><tr><td>Home screen</td><td>Customize Home</td></tr><tr><td>Scrobbling</td><td>Sign in to or out of Last.fm; plays waiting to be sent</td></tr><tr><td>Diagnostics</td><td>Connection details for troubleshooting</td></tr><tr><td>About Nomad</td><td>Version, privacy policy, terms of use, contact and open-source licenses</td></tr></table></div>
+<h2 id="trial-and-purchase">Trial and purchase</h2>
+<p>Every feature works for <strong>14 days</strong> from the first time Nomad runs. After that, Nomad plays once you've bought it: a single purchase through Google Play, with no subscription. The purchase covers every Android device signed in to the same Google account. Nothing you downloaded or set up is lost when the trial ends, and a song is never cut off mid-way.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul><li><strong>Nomad can't connect.</strong> Check the server address in Settings, that the phone is on the same network (or your VPN is on when away), and that ports 9000 and 3483 are reachable. Lyrion's server password must be off.</li><li><strong>Someone else can control Nomad from Lyrion.</strong> Install or update Nomad Companion, and restart Lyrion.</li><li><strong>The music stopped in a dead zone.</strong> Pick a larger Cache size, and check Download ahead allows downloading on your current connection. Tidal, podcasts and radio only buffer one track ahead.</li><li><strong>An old Nomad shows in Lyrion.</strong> Reinstalling Nomad creates a new player; remove the old one in Lyrion's settings.</li><li><strong>Plays count twice on Last.fm.</strong> Turn Nomad off in the Last.fm app's scrobbling settings.</li><li><strong>Still stuck?</strong> Email <a href="mailto:privacy@aurelian-group.com">privacy@aurelian-group.com</a> with what happened. <strong>Settings › Diagnostics</strong> shows details that can help.</li></ul>
+<p>Nomad is not affiliated with or endorsed by the Lyrion project, Logitech, Tidal, Last.fm or Google.</p>
+<footer>© 2026 Aurelian Group Pty Ltd · <a href="mailto:privacy@aurelian-group.com">privacy@aurelian-group.com</a></footer>
+</main>
+</body>
+</html>

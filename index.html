@@ -17,11 +17,13 @@ header { display: flex; gap: 16px; align-items: baseline; flex-wrap: wrap; margi
 header a { color: var(--accent); text-decoration: none; font-weight: 600; }
 h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 4px; }
 h2 { font-size: 1.25rem; margin: 2em 0 0.5em; }
+h3 { font-size: 1.05rem; margin: 1.5em 0 0.4em; }
 p.date { color: var(--muted); margin-top: 0; }
 a { color: var(--accent); }
 ul { padding-left: 1.3em; }
 li { margin: 0.3em 0; }
-code { font-size: 0.9em; }
+code { font-size: 0.9em; overflow-wrap: anywhere; }
+a { overflow-wrap: anywhere; }
 .table { overflow-x: auto; }
 table { border-collapse: collapse; width: 100%; margin: 1em 0; background: var(--card); }
 th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
@@ -30,11 +32,12 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 </head>
 <body>
 <main>
-<header><a href="index.html">Nomad LMS Player</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></header>
+<header><a href="index.html">Nomad LMS Player</a><a href="manual.html">Manual</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></header>
 <h1>Nomad LMS Player</h1>
 <p>An Android player for your own Lyrion Music Server (LMS) that keeps playing through mobile-data dropouts,
 with downloads for flights and roaming, Android Auto, and a turntable, CD player or cassette deck on screen.</p>
 <ul>
+<li><a href="manual.html">User manual</a></li>
 <li><a href="privacy.html">Privacy policy</a></li>
 <li><a href="terms.html">Terms of use</a></li>
 <li>Support: <a href="mailto:privacy@aurelian-group.com">privacy@aurelian-group.com</a></li>
